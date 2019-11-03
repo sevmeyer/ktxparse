@@ -1,0 +1,117 @@
+#include <catch2/catch.hpp>
+#include <GL/gl.h>
+
+#include "helpers.hpp"
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_0.ktx")
+{
+	// Technically valid, but nonsensical for OpenGL.
+	testInvalid("ktxtest/ktx/valid/size/size_0.ktx");
+}
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_1d_41.ktx")
+{
+	testValid("ktxtest/ktx/valid/size/size_1d_41.ktx", {
+		GL_TEXTURE_1D,1,6,GL_R8,41,1,1,false,false,false, {
+			{GL_TEXTURE_1D,0,GL_R8,41,1,1,GL_RED,GL_UNSIGNED_BYTE,44,0x00,0xFF,0x00,0xCC},
+			{GL_TEXTURE_1D,1,GL_R8,20,1,1,GL_RED,GL_UNSIGNED_BYTE,20,0x11,0x11,0x11,0x11},
+			{GL_TEXTURE_1D,2,GL_R8,10,1,1,GL_RED,GL_UNSIGNED_BYTE,12,0x22,0x22,0x22,0x22},
+			{GL_TEXTURE_1D,3,GL_R8, 5,1,1,GL_RED,GL_UNSIGNED_BYTE, 8,0x33,0x33,0x33,0x33},
+			{GL_TEXTURE_1D,4,GL_R8, 2,1,1,GL_RED,GL_UNSIGNED_BYTE, 4,0x44,0x44,0x00,0x00},
+			{GL_TEXTURE_1D,5,GL_R8, 1,1,1,GL_RED,GL_UNSIGNED_BYTE, 4,0x55,0x00,0x00,0x00} }});
+}
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_1d_64.ktx")
+{
+	testValid("ktxtest/ktx/valid/size/size_1d_64.ktx", {
+		GL_TEXTURE_1D,1,7,GL_R8,64,1,1,false,false,false, {
+			{GL_TEXTURE_1D,0,GL_R8,64,1,1,GL_RED,GL_UNSIGNED_BYTE,64,0x00,0xFF,0x00,0xCC},
+			{GL_TEXTURE_1D,1,GL_R8,32,1,1,GL_RED,GL_UNSIGNED_BYTE,32,0x11,0x11,0x11,0x11},
+			{GL_TEXTURE_1D,2,GL_R8,16,1,1,GL_RED,GL_UNSIGNED_BYTE,16,0x22,0x22,0x22,0x22},
+			{GL_TEXTURE_1D,3,GL_R8, 8,1,1,GL_RED,GL_UNSIGNED_BYTE, 8,0x33,0x33,0x33,0x33},
+			{GL_TEXTURE_1D,4,GL_R8, 4,1,1,GL_RED,GL_UNSIGNED_BYTE, 4,0x44,0x44,0x44,0x44},
+			{GL_TEXTURE_1D,5,GL_R8, 2,1,1,GL_RED,GL_UNSIGNED_BYTE, 4,0x55,0x55,0x00,0x00},
+			{GL_TEXTURE_1D,6,GL_R8, 1,1,1,GL_RED,GL_UNSIGNED_BYTE, 4,0x66,0x00,0x00,0x00} }});
+}
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_2d_43x71.ktx")
+{
+	testValid("ktxtest/ktx/valid/size/size_2d_43x71.ktx", {
+		GL_TEXTURE_2D,2,7,GL_R8,43,71,1,false,false,false, {
+			{GL_TEXTURE_2D,0,GL_R8,43,71,1,GL_RED,GL_UNSIGNED_BYTE,3124,0x00,0x00,0x00,0x00},
+			{GL_TEXTURE_2D,1,GL_R8,21,35,1,GL_RED,GL_UNSIGNED_BYTE, 840,0x11,0x11,0x11,0x11},
+			{GL_TEXTURE_2D,2,GL_R8,10,17,1,GL_RED,GL_UNSIGNED_BYTE, 204,0x22,0x22,0x22,0x22},
+			{GL_TEXTURE_2D,3,GL_R8, 5, 8,1,GL_RED,GL_UNSIGNED_BYTE,  64,0x33,0x33,0x33,0x33},
+			{GL_TEXTURE_2D,4,GL_R8, 2, 4,1,GL_RED,GL_UNSIGNED_BYTE,  16,0x44,0x44,0x00,0x00},
+			{GL_TEXTURE_2D,5,GL_R8, 1, 2,1,GL_RED,GL_UNSIGNED_BYTE,   8,0x55,0x00,0x00,0x00},
+			{GL_TEXTURE_2D,6,GL_R8, 1, 1,1,GL_RED,GL_UNSIGNED_BYTE,   4,0x66,0x00,0x00,0x00} }});
+}
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_2d_64x32.ktx")
+{
+	testValid("ktxtest/ktx/valid/size/size_2d_64x32.ktx", {
+		GL_TEXTURE_2D,2,7,GL_R8,64,32,1,false,false,false, {
+			{GL_TEXTURE_2D,0,GL_R8,64,32,1,GL_RED,GL_UNSIGNED_BYTE,2048,0x00,0x00,0x00,0x00},
+			{GL_TEXTURE_2D,1,GL_R8,32,16,1,GL_RED,GL_UNSIGNED_BYTE, 512,0x11,0x11,0x11,0x11},
+			{GL_TEXTURE_2D,2,GL_R8,16, 8,1,GL_RED,GL_UNSIGNED_BYTE, 128,0x22,0x22,0x22,0x22},
+			{GL_TEXTURE_2D,3,GL_R8, 8, 4,1,GL_RED,GL_UNSIGNED_BYTE,  32,0x33,0x33,0x33,0x33},
+			{GL_TEXTURE_2D,4,GL_R8, 4, 2,1,GL_RED,GL_UNSIGNED_BYTE,   8,0x44,0x44,0x44,0x44},
+			{GL_TEXTURE_2D,5,GL_R8, 2, 1,1,GL_RED,GL_UNSIGNED_BYTE,   4,0x55,0x55,0x00,0x00},
+			{GL_TEXTURE_2D,6,GL_R8, 1, 1,1,GL_RED,GL_UNSIGNED_BYTE,   4,0x66,0x00,0x00,0x00} }});
+}
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_2d_64x64.ktx")
+{
+	testValid("ktxtest/ktx/valid/size/size_2d_64x64.ktx", {
+		GL_TEXTURE_2D,2,7,GL_R8,64,64,1,false,false,false, {
+			{GL_TEXTURE_2D,0,GL_R8,64,64,1,GL_RED,GL_UNSIGNED_BYTE,4096,0x00,0x00,0x00,0x00},
+			{GL_TEXTURE_2D,1,GL_R8,32,32,1,GL_RED,GL_UNSIGNED_BYTE,1024,0x11,0x11,0x11,0x11},
+			{GL_TEXTURE_2D,2,GL_R8,16,16,1,GL_RED,GL_UNSIGNED_BYTE, 256,0x22,0x22,0x22,0x22},
+			{GL_TEXTURE_2D,3,GL_R8, 8, 8,1,GL_RED,GL_UNSIGNED_BYTE,  64,0x33,0x33,0x33,0x33},
+			{GL_TEXTURE_2D,4,GL_R8, 4, 4,1,GL_RED,GL_UNSIGNED_BYTE,  16,0x44,0x44,0x44,0x44},
+			{GL_TEXTURE_2D,5,GL_R8, 2, 2,1,GL_RED,GL_UNSIGNED_BYTE,   8,0x55,0x55,0x00,0x00},
+			{GL_TEXTURE_2D,6,GL_R8, 1, 1,1,GL_RED,GL_UNSIGNED_BYTE,   4,0x66,0x00,0x00,0x00} }});
+}
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_3d_13x23x7.ktx")
+{
+	testValid("ktxtest/ktx/valid/size/size_3d_13x23x7.ktx", {
+		GL_TEXTURE_3D,3,5,GL_R8,13,23,7,false,false,false, {
+			{GL_TEXTURE_3D,0,GL_R8,13,23,7,GL_RED,GL_UNSIGNED_BYTE,2576,0x00,0x00,0x00,0x00},
+			{GL_TEXTURE_3D,1,GL_R8, 6,11,3,GL_RED,GL_UNSIGNED_BYTE, 264,0x11,0x11,0x11,0x11},
+			{GL_TEXTURE_3D,2,GL_R8, 3, 5,1,GL_RED,GL_UNSIGNED_BYTE,  20,0x22,0x22,0x22,0x00},
+			{GL_TEXTURE_3D,3,GL_R8, 1, 2,1,GL_RED,GL_UNSIGNED_BYTE,   8,0x33,0x00,0x00,0x00},
+			{GL_TEXTURE_3D,4,GL_R8, 1, 1,1,GL_RED,GL_UNSIGNED_BYTE,   4,0x44,0x00,0x00,0x00} }});
+}
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_3d_16x16x16.ktx")
+{
+	testValid("ktxtest/ktx/valid/size/size_3d_16x16x16.ktx", {
+		GL_TEXTURE_3D,3,5,GL_R8,16,16,16,false,false,false, {
+			{GL_TEXTURE_3D,0,GL_R8,16,16,16,GL_RED,GL_UNSIGNED_BYTE,4096,0x00,0x00,0x00,0x00},
+			{GL_TEXTURE_3D,1,GL_R8, 8, 8, 8,GL_RED,GL_UNSIGNED_BYTE, 512,0x11,0x11,0x11,0x11},
+			{GL_TEXTURE_3D,2,GL_R8, 4, 4, 4,GL_RED,GL_UNSIGNED_BYTE,  64,0x22,0x22,0x22,0x22},
+			{GL_TEXTURE_3D,3,GL_R8, 2, 2, 2,GL_RED,GL_UNSIGNED_BYTE,  16,0x33,0x33,0x00,0x00},
+			{GL_TEXTURE_3D,4,GL_R8, 1, 1, 1,GL_RED,GL_UNSIGNED_BYTE,   4,0x44,0x00,0x00,0x00} }});
+}
+
+
+TEST_CASE("ktxtest/ktx/valid/size/size_3d_32x16x4.ktx")
+{
+	testValid("ktxtest/ktx/valid/size/size_3d_32x16x4.ktx", {
+		GL_TEXTURE_3D,3,6,GL_R8,32,16,4,false,false,false, {
+			{GL_TEXTURE_3D,0,GL_R8,32,16,4,GL_RED,GL_UNSIGNED_BYTE,2048,0x00,0x00,0x00,0x00},
+			{GL_TEXTURE_3D,1,GL_R8,16, 8,2,GL_RED,GL_UNSIGNED_BYTE, 256,0x11,0x11,0x11,0x11},
+			{GL_TEXTURE_3D,2,GL_R8, 8, 4,1,GL_RED,GL_UNSIGNED_BYTE,  32,0x22,0x22,0x22,0x22},
+			{GL_TEXTURE_3D,3,GL_R8, 4, 2,1,GL_RED,GL_UNSIGNED_BYTE,   8,0x33,0x33,0x33,0x33},
+			{GL_TEXTURE_3D,4,GL_R8, 2, 1,1,GL_RED,GL_UNSIGNED_BYTE,   4,0x44,0x44,0x00,0x00},
+			{GL_TEXTURE_3D,5,GL_R8, 1, 1,1,GL_RED,GL_UNSIGNED_BYTE,   4,0x55,0x00,0x00,0x00} }});
+}
